@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kahel Café - Bacoor City</title>
+<!-- SEO -->
+<meta name="description" content="Kahel Café is a specialty coffee shop in Paranaque City, Metro Manila. Enjoy house-roasted blends, handcrafted drinks, and thoughtfully prepared food in a sun-drenched, community-first space." />
+<meta name="keywords" content="Kahel Cafe, specialty coffee, Paranaque cafe, coffee shop Manila, cold brew, latte, brunch" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.kahelcafe.com" />
+<!-- Open Graph (Facebook / LinkedIn) -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:title" content="Kahel Café — Specialty Coffee in Paranaque City" />
+<meta property="og:description" content="A sun-drenched sanctuary of specialty coffee, handcrafted drinks, and thoughtfully prepared food. Rooted in community, inspired by citrus." />
+<meta property="og:url" content="https://www.kahelcafe.com" />
+<meta property="og:image" content="https://www.kahelcafe.com/og-image.jpg" />
+<meta property="og:site_name" content="Kahel Café" />
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kahel Café — Specialty Coffee in Paranaque City" />
+<meta name="twitter:description" content="House-roasted blends, handcrafted drinks & fresh food. Visit us at 123 Citrus Street, Paranaque City." />
+<meta name="twitter:image" content="https://www.kahelcafe.com/og-image.jpg" />
+<link rel="stylesheet" href="source/style.css" />
+<link rel="icon" type="image/png" href="asset/kahel-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0;1,9..144,300..900,0..100,0&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Page transition overlay -->
+<div id="pageTransition" class="page-transition"></div>
+
+<!-- Announcement modal -->
+<div class="ann-modal-overlay" id="annModalOverlay">
+  <div class="ann-modal" id="annModalContent"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     NAV — DARK PREMIUM
+════════════════════════════════════════════════════════ -->
+<nav id="mainNav">
+
+  <!-- Hamburger button (mobile only) -->
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <!-- Stacked wave bars — morph to arc-X when open -->
+    <span class="hb-icon">
+      <span class="hb-bar hb-bar--1"></span>
+      <span class="hb-bar hb-bar--2"></span>
+      <span class="hb-bar hb-bar--3"></span>
+    </span>
+    <!-- Radial ripple ring on open -->
+    <span class="hb-ring"></span>
+  </button>
+
+  <a class="nav-logo" href="#" onclick="showPage('home');return false;">
+    <img src="asset/kahel-logo.png" class="nav-logo-img" alt="Kahel Café Logo" />
+    <div class="nav-logo-text">
+      <div class="name">Kahel</div>
+      <div class="sub">Café</div>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a class="nav-link active" href="#" data-page="home"          onclick="showPage('home');return false;">Home</a>
+    <a class="nav-link"        href="#" data-page="about"         onclick="showPage('about');return false;">About</a>
+    <a class="nav-link"        href="#" data-page="menu"          onclick="showPage('menu');return false;">Menu</a>
+    <a class="nav-link"        href="#" data-page="barista"       onclick="showPage('barista');return false;">Barista</a>
+    <a class="nav-link"        href="#" data-page="gallery"       onclick="showPage('gallery');return false;">Gallery</a>
+    <a class="nav-link"        href="#" data-page="home"          onclick="showPage('home');scrollToServices();return false;">Services</a>
+  </div>
+
+  <a class="nav-reserve" id="navContactBtn"
+     href="#" data-page="contact" onclick="showPage('contact');return false;"
+     >Contact Us</a>
+
+</nav>
+
+<!-- ══════════════════════════════════════════════════════
+     MOBILE MENU DRAWER
+════════════════════════════════════════════════════════ -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+
+  <!-- Drawer header with logo -->
+  <div class="mobile-menu-header">
+    <div class="mobile-menu-logo">
+      <div class="mobile-menu-logo-icon">
+        <img src="asset/kahel-logo.png" alt="Kahel Café" class="mobile-menu-logo-img" />
+      </div>
+      <div class="mobile-menu-logo-text">
+        <div class="mobile-menu-logo-name">Kahel</div>
+        <div class="mobile-menu-logo-sub">Café</div>
+      </div>
+    </div>
+    <!-- Unique arc-close button -->
+    <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+      <span class="mc-line mc-line--1"></span>
+      <span class="mc-line mc-line--2"></span>
+    </button>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+    <a class="mobile-nav-link active" href="#" data-page="home"    onclick="showPage('home');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </span>
+      Home
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="about"          onclick="showPage('about');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </span>
+      About
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="menu"           onclick="showPage('menu');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+      </span>
+      Menu
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="barista"        onclick="showPage('barista');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+      </span>
+      Barista
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="gallery"        onclick="showPage('gallery');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </span>
+      Gallery
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="home"           onclick="showPage('home');scrollToServices();closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </span>
+      Services
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+    <a class="mobile-nav-link" href="#" data-page="contact"        onclick="showPage('contact');closeMobileMenu();return false;">
+      <span class="mobile-nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </span>
+      Contact Us
+      <svg class="mobile-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+  </nav>
+
+  <!-- Drawer footer CTA -->
+  <div class="mobile-menu-footer">
+    <a class="mobile-menu-cta" href="#" onclick="showPage('contact');closeMobileMenu();return false;">
+      Contact Us
+    </a>
+    <div class="mobile-menu-footer-info">
+      <span>Kahel Café</span>
+      <span class="mobile-menu-dot">·</span>
+      <span>Js Ville Subdivision, Habay 1, Bacoor</span>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-parallax-bg" id="heroBg"></div>
+    <div class="hero-orb" style="width:600px;height:600px;top:-200px;right:-200px;opacity:.05;"></div>
+    <div class="hero-orb" style="width:300px;height:300px;bottom:50px;left:-100px;opacity:.04;"></div>
+    <div class="hero-orb" style="width:150px;height:150px;top:40%;right:30%;opacity:.07;"></div>
+    <div class="hero-glow"></div>
+
+
+    <div class="hero-inner hero-centered">
+      <div class="hero-content hero-text">
+        <div class="hero-eyebrow">Welcome to Kahel</div>
+        <h1 class="hero-h1">
+          The Cafe Built On<br/>
+          <em>Dreams</em> And Made For You
+        </h1>
+        <p class="hero-sub">
+          A sun-drenched sanctuary of specialty coffee, handcrafted drinks, and thoughtfully prepared food.
+          Inspired by the warmth of citrus, rooted in community.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('menu')">Explore Our Menu</button>
+          <button class="btn-amber-outline" onclick="showPage('announcements')">Announcements</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-label">Scroll</div>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section class="featured-section">
+    <div class="featured-header reveal">
+      <div class="section-label" style="margin-bottom:16px;justify-content:center;">Our Specialties</div>
+      <h2>Kahel Best Seller</h2>
+    </div>
+    <div class="featured-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px;">
+
+      <!-- Card 1: Biscoff Latte -->
+      <div class="feature-card reveal" style="transition-delay:.05s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Biscoff Latte</h3>
+        <p class="feature-desc">Espresso with creamy Biscoff spread and steamed milk.</p>
+        <div class="feature-price">₱170</div>
+      </div>
+
+      <!-- Card 2: Seasalt Latte -->
+      <div class="feature-card reveal" style="transition-delay:.10s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="feature-tag">Bestseller</span>
+        <h3 class="feature-name">Seasalt Latte</h3>
+        <p class="feature-desc">Espresso with a hint of sea salt and smooth milk foam.</p>
+        <div class="feature-price">₱160</div>
+      </div>
+
+      <!-- Card 3: Kahel Espresso -->
+      <div class="feature-card reveal" style="transition-delay:.15s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Kahel Espresso</h3>
+        <p class="feature-desc">Our house-crafted espresso blend, Kahel's signature style.</p>
+        <div class="feature-price">₱150</div>
+      </div>
+
+      <!-- Card 4: Tiramisu Latte -->
+      <div class="feature-card reveal" style="transition-delay:.20s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Tiramisu Latte</h3>
+        <p class="feature-desc">Espresso with mascarpone-inspired cream and cocoa dusting.</p>
+        <div class="feature-price">₱180</div>
+      </div>
+
+      <!-- Card 5: Creamy White Mocha -->
+      <div class="feature-card reveal" style="transition-delay:.25s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Creamy White Mocha</h3>
+        <p class="feature-desc">Extra-rich white chocolate espresso with pillowy foam.</p>
+        <div class="feature-price">₱170</div>
+      </div>
+
+      <!-- Card 6: Cereal Latte -->
+      <div class="feature-card reveal" style="transition-delay:.30s">
+        <div class="feature-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <circle cx="26" cy="26" r="25" fill="var(--light)"/>
+            <path d="M33 22h2a6 6 0 0 1 0 12h-2" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M13 22h20v12a6 6 0 0 1-6 6h-8a6 6 0 0 1-6-6Z" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="18" y1="16" x2="18" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="23" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="16" x2="28" y2="20" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-name">Cereal Latte</h3>
+        <p class="feature-desc">Espresso infused with cereal milk — nostalgic and indulgent.</p>
+        <div class="feature-price">₱180</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <button class="btn-outline" onclick="showPage('menu')">View Full Menu</button>
+    </div>
+  </section>
+
+
+
+  <div class="section-divider"></div>
+
+  <!-- ── SERVICES ─────────────────────────────────── -->
+  <section class="services-section" id="servicesSection">
+    <div class="services-bg-orb services-orb-1"></div>
+    <div class="services-bg-orb services-orb-2"></div>
+
+    <div class="services-inner">
+      <!-- Header -->
+      <div class="services-header reveal">
+        <div class="section-label" style="justify-content:center;margin-bottom:20px;">What We Offer</div>
+        <h2 class="services-title">Crafted for Every<br/><em>Occasion</em></h2>
+        <p class="services-subtitle">From a quiet solo morning to a full team gathering — Kahel is built to serve you, your way.</p>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="services-grid">
+
+        <!-- Dine-In -->
+        <div class="svc-card reveal" style="transition-delay:.04s">
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="10" width="28" height="18" rx="3"/>
+              <path d="M4 16h28"/>
+              <path d="M13 10V8a2 2 0 0 1 4 0v2"/>
+              <circle cx="18" cy="22" r="3"/>
+            </svg>
+          </div>
+          <div class="svc-label">Dine-In</div>
+          <p class="svc-desc">Comfortable seating for solo visits, dates, and small groups in our sun-warmed interiors.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Table Service</span>
+            <span class="svc-tag">All Day</span>
+          </div>
+          <div class="svc-shimmer"></div>
+        </div>
+
+        <!-- Takeout -->
+        <div class="svc-card reveal" style="transition-delay:.10s">
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4h12l3 8H9L12 4Z"/>
+              <rect x="7" y="12" width="22" height="18" rx="3"/>
+              <path d="M14 20h8M18 16v8"/>
+            </svg>
+          </div>
+          <div class="svc-label">Takeout</div>
+          <p class="svc-desc">Order at the counter and take your Kahel favorites on the go — packed with care.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Quick & Easy</span>
+            <span class="svc-tag">Eco Cups</span>
+          </div>
+          <div class="svc-shimmer"></div>
+        </div>
+
+        <!-- Delivery -->
+        <div class="svc-card reveal" style="transition-delay:.16s">
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="12" width="22" height="14" rx="2"/>
+              <path d="M24 16h4l4 6v4h-8V16Z"/>
+              <circle cx="9" cy="28" r="2.5"/>
+              <circle cx="28" cy="28" r="2.5"/>
+              <path d="M2 22h22"/>
+            </svg>
+          </div>
+          <div class="svc-label">Delivery</div>
+          <p class="svc-desc">Get Kahel delivered straight to your door via GrabFood and Foodpanda. Hot, fresh, on time.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">GrabFood</span>
+            <span class="svc-tag">Foodpanda</span>
+          </div>
+          <div class="svc-shimmer"></div>
+        </div>
+
+        <!-- Outdoor Seating -->
+        <div class="svc-card reveal" style="transition-delay:.22s">
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 4v6M10 8l4 4M26 8l-4 4"/>
+              <path d="M6 18h24"/>
+              <path d="M9 18v12M27 18v12"/>
+              <path d="M4 18c0-7.7 6.3-14 14-14s14 6.3 14 14"/>
+              <path d="M13 30h10"/>
+            </svg>
+          </div>
+          <div class="svc-label">Outdoor Seating</div>
+          <p class="svc-desc">Enjoy your coffee al fresco on our shaded patio — the perfect spot for people-watching.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Pet Friendly</span>
+            <span class="svc-tag">Shaded</span>
+          </div>
+          <div class="svc-shimmer"></div>
+        </div>
+
+        <!-- Reservations -->
+        <div class="svc-card reveal" style="transition-delay:.28s">
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="6" width="28" height="26" rx="3"/>
+              <path d="M4 14h28"/>
+              <path d="M12 4v4M24 4v4"/>
+              <path d="M10 20h6M10 25h10"/>
+              <circle cx="26" cy="24" r="4"/>
+              <path d="M24.5 24l1 1 2-2"/>
+            </svg>
+          </div>
+          <div class="svc-label">Reservations</div>
+          <p class="svc-desc">Secure your table in advance for groups, celebrations, or a guaranteed cozy corner.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Via Email</span>
+            <span class="svc-tag">Groups Welcome</span>
+          </div>
+          <div class="svc-shimmer"></div>
+        </div>
+
+        <!-- Private Events -->
+        <div class="svc-card svc-card--featured reveal" style="transition-delay:.34s">
+          <div class="svc-featured-glow"></div>
+          <div class="svc-icon-wrap">
+            <div class="svc-icon-ring"></div>
+            <svg class="svc-icon-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 4l2.4 7.4H28l-6.2 4.5 2.4 7.4L18 19l-6.2 4.3 2.4-7.4L8 11.4h7.6L18 4Z"/>
+              <path d="M10 28h16M13 32h10"/>
+            </svg>
+          </div>
+          <div class="svc-label" style="color:var(--amber);">Private Events</div>
+          <p class="svc-desc">Host your next milestone with us — birthdays, team days, and intimate gatherings done beautifully.</p>
+          <div class="svc-tags">
+            <span class="svc-tag svc-tag--amber">Whole Café Buy-out</span>
+            <span class="svc-tag svc-tag--amber">Custom Menu</span>
+          </div>
+          <a class="svc-cta" href="mailto:hello@kahelcafe.com?subject=Private%20Event%20Inquiry%20%E2%80%94%20Kahel%20Café">
+            Inquire Now
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+          </a>
+          <div class="svc-shimmer"></div>
+        </div>
+
+      </div><!-- /services-grid -->
+
+      <!-- Bottom strip -->
+      <div class="services-bottom reveal">
+        <div class="services-bottom-text">Have a special request or need something custom?</div>
+        <a class="services-bottom-link" href="mailto:hello@kahelcafe.com">
+          hello@kahelcafe.com
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 6.5h9M7 2.5l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</div><!-- /home -->
+
+<!-- ══════════════════════════════════════════════════════
+     MENU PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-menu" class="page">
+  <div style="padding-top:72px;">
+    <section class="page-hero">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="ph-particles" id="menuParticles"></div>
+      <div class="section-label" style="color:var(--amber);">Our Offerings</div>
+      <h1>The Kahel Menu</h1>
+      <p>Every item crafted with intention. From our house-roasted beans to our kitchen-fresh bites.</p>
+    </section>
+
+    <div class="cat-strip" id="catStrip">
+      <div class="cat-strip-inner">
+
+        <!-- Standalone: Starters -->
+        <button class="cpill" id="cpill-Starters" onclick="selectDirectCat('Starters')">
+          <span class="cpill-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          </span>
+          <span class="cpill-label">Starters</span>
+        </button>
+
+        <!-- Standalone: Kahel Specials -->
+        <button class="cpill cpill--special" id="cpill-Kahel Specials" onclick="selectDirectCat('Kahel Specials')">
+          <span class="cpill-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </span>
+          <span class="cpill-label">Kahel Specials</span>
+        </button>
+
+        <!-- Group: Drinks -->
+        <div class="cpill-group" id="cgroup-drinks">
+          <button class="cpill cpill--group" id="cpill-drinks" onclick="toggleGroup('drinks')">
+            <span class="cpill-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+            </span>
+            <span class="cpill-label" id="cpill-drinks-label">Drinks</span>
+            <span class="cpill-chevron">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg>
+            </span>
+          </button>
+          <div class="cpill-dropdown" id="cdrop-drinks">
+            <button class="cdrop-item" onclick="selectGroupCat('drinks','Coffee','Drinks')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>
+              Coffee
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('drinks','Non-Coffee','Drinks')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 1 0 0 16A8 8 0 0 0 12 2z"/><path d="M2 12h20"/></svg>
+              Non-Coffee
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('drinks','Frappe','Drinks')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l1 6H7L8 2z"/><path d="M7 8c0 5 2 10 5 10s5-5 5-10"/></svg>
+              Frappe
+            </button>
+          </div>
+        </div>
+
+        <!-- Group: Mains -->
+        <div class="cpill-group" id="cgroup-mains">
+          <button class="cpill cpill--group" id="cpill-mains" onclick="toggleGroup('mains')">
+            <span class="cpill-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c0 2.8 4 5 9 5s9-2.2 9-5"/><path d="M3 10c0 2.8 4 5 9 5s9-2.2 9-5"/><ellipse cx="12" cy="10" rx="9" ry="3"/></svg>
+            </span>
+            <span class="cpill-label" id="cpill-mains-label">Mains</span>
+            <span class="cpill-chevron">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg>
+            </span>
+          </button>
+          <div class="cpill-dropdown" id="cdrop-mains">
+            <button class="cdrop-item" onclick="selectGroupCat('mains','Pasta','Mains')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c0 2.8 4 5 9 5s9-2.2 9-5"/><path d="M3 10c0 2.8 4 5 9 5s9-2.2 9-5"/><ellipse cx="12" cy="10" rx="9" ry="3"/></svg>
+              Pasta
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('mains','Sandwich','Mains')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M3 14h18"/><path d="M5 11V8a7 7 0 0 1 14 0v3"/><path d="M5 14v3a7 7 0 0 0 14 0v-3"/></svg>
+              Sandwich
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('mains','Salad','Mains')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c0-8 6-16 18-16C23 17 17 21 5 21Z"/><path d="M5 21L14 12"/></svg>
+              Salad
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('mains','Pizza','Mains')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 18H3L12 2z"/><circle cx="12" cy="14" r="1" fill="currentColor"/></svg>
+              Pizza
+            </button>
+          </div>
+        </div>
+
+        <!-- Group: Breakfast & Rice -->
+        <div class="cpill-group" id="cgroup-morning">
+          <button class="cpill cpill--group" id="cpill-morning" onclick="toggleGroup('morning')">
+            <span class="cpill-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8c0-2.2-1.8-4-4-4s-4 1.8-4 4"/><path d="M3 12h18"/></svg>
+            </span>
+            <span class="cpill-label" id="cpill-morning-label">Breakfast &amp; Rice</span>
+            <span class="cpill-chevron">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4l4 4 4-4"/></svg>
+            </span>
+          </button>
+          <div class="cpill-dropdown" id="cdrop-morning">
+            <button class="cdrop-item" onclick="selectGroupCat('morning','Breakfast','Breakfast &amp; Rice')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8c0-2.2-1.8-4-4-4s-4 1.8-4 4"/><path d="M3 12h18"/></svg>
+              Breakfast
+            </button>
+            <button class="cdrop-item" onclick="selectGroupCat('morning','Rice Meal','Breakfast &amp; Rice')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H2A10 10 0 0 0 12 2z"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83"/></svg>
+              Rice Meal
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="menu-section">
+      <div class="menu-section-header">
+        <div class="menu-section-header-left">
+          <h2 id="menuCatTitle" style="font-size:36px;font-weight:800;margin-bottom:6px;"></h2>
+          <div style="width:48px;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));margin-bottom:6px;"></div>
+          <div class="menu-item-count" id="menuItemCount"></div>
+        </div>
+      </div>
+      <div class="menu-grid fade-in" id="menuGrid"></div>
+    </section>
+
+    <div class="dietary-note">
+      <p>We accommodate dietary restrictions. Please inform your server of any allergies.
+         Oat milk, almond milk, and soy milk available as substitutes. Prices inclusive of VAT.</p>
+    </div>
+
+    <!-- ── ADVANCE ORDER STRIP ──────────────────────── -->
+    <section class="order-strip reveal">
+      <div class="order-strip-inner">
+        <div class="order-strip-text">
+          <div class="section-label" style="margin-bottom:10px;">Skip the Queue</div>
+          <h2 class="order-strip-title">Order Ahead,<br/><em>Pick Up Fresh</em></h2>
+          <p class="order-strip-sub">Place your order online and have it ready when you arrive. No waiting, just coffee.</p>
+        </div>
+        <div class="order-strip-options">
+          <a class="order-option-card" href="https://food.grab.com/kahelcafe" target="_blank" rel="noopener">
+            <div class="order-option-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="8" width="16" height="12" rx="2"/>
+                <path d="M19 11h3l3 4v3h-6V11Z"/>
+                <circle cx="8" cy="22" r="2"/><circle cx="20" cy="22" r="2"/>
+              </svg>
+            </div>
+            <div class="order-option-name">GrabFood</div>
+            <div class="order-option-sub">Delivery & pickup</div>
+          </a>
+          <a class="order-option-card" href="https://www.foodpanda.ph/kahelcafe" target="_blank" rel="noopener">
+            <div class="order-option-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 4h10l2 6H7L9 4Z"/>
+                <rect x="5" y="10" width="18" height="13" rx="2"/>
+                <path d="M11 16h6M14 13v6"/>
+              </svg>
+            </div>
+            <div class="order-option-name">Foodpanda</div>
+            <div class="order-option-sub">Delivery & pickup</div>
+          </a>
+          <a class="order-option-card order-option-card--featured" href="mailto:hello@kahelcafe.com?subject=Advance%20Order%20%E2%80%94%20Kahel%20Caf%C3%A9" target="_blank" rel="noopener">
+            <div class="order-option-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="24" height="18" rx="2"/>
+                <path d="M2 9l12 8 12-8"/>
+              </svg>
+            </div>
+            <div class="order-option-name" style="color:var(--amber);">Large Orders</div>
+            <div class="order-option-sub">Bulk & corporate</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MERCHANDISE STRIP ──────────────────────────── -->
+    <section class="merch-section reveal">
+      <div class="merch-inner">
+        <div class="merch-header">
+          <div class="section-label" style="margin-bottom:12px;">Take Kahel Home</div>
+          <h2 class="merch-title">Kahel <em>Merchandise</em></h2>
+          <p class="merch-sub">Beans, merch, and gift sets — crafted with the same love as every cup we serve.</p>
+        </div>
+        <div class="merch-grid">
+          <div class="merch-card">
+            <div class="merch-img-wrap">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="24" cy="36" rx="14" ry="5"/><path d="M10 36V18l14-6 14 6v18"/>
+                <path d="M24 12v24M10 24h28"/>
+              </svg>
+            </div>
+            <div class="merch-name">Signature Blend Beans</div>
+            <div class="merch-desc">250g house-roasted, whole bean or ground</div>
+            <div class="merch-price">₱450</div>
+            <a class="merch-btn" href="mailto:hello@kahelcafe.com?subject=Merch%20Order%20%E2%80%94%20Signature%20Blend%20Beans">Order Now</a>
+          </div>
+          <div class="merch-card">
+            <div class="merch-img-wrap">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8h16l4 12H12L16 8Z"/>
+                <rect x="10" y="20" width="28" height="4" rx="1"/>
+                <path d="M14 24v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V24"/>
+                <path d="M20 32h8"/>
+              </svg>
+            </div>
+            <div class="merch-name">Kahel Tote Bag</div>
+            <div class="merch-desc">Canvas tote with embroidered Kahel logo</div>
+            <div class="merch-price">₱380</div>
+            <a class="merch-btn" href="mailto:hello@kahelcafe.com?subject=Merch%20Order%20%E2%80%94%20Tote%20Bag">Order Now</a>
+          </div>
+          <div class="merch-card merch-card--featured">
+            <div class="merch-img-wrap">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="8" width="36" height="32" rx="3"/>
+                <path d="M6 18h36"/><path d="M18 8v10M30 8v10"/>
+                <path d="M15 28h6M15 33h12"/>
+              </svg>
+            </div>
+            <div class="merch-name" style="color:var(--amber);">Kahel Gift Set</div>
+            <div class="merch-desc">Beans + tote + branded mug — perfect for gifting</div>
+            <div class="merch-price">₱1,200</div>
+            <a class="merch-btn merch-btn--amber" href="mailto:hello@kahelcafe.com?subject=Merch%20Order%20%E2%80%94%20Gift%20Set">Order Now</a>
+          </div>
+          <div class="merch-card">
+            <div class="merch-img-wrap">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 8c-7 0-13 6-13 14 0 6 3 10 7 13v3h12v-3c4-3 7-7 7-13 0-8-6-14-13-14Z"/>
+                <path d="M18 38h12M20 41h8"/>
+              </svg>
+            </div>
+            <div class="merch-name">Kahel Ceramic Mug</div>
+            <div class="merch-desc">12oz matte ceramic with orange Kahel mark</div>
+            <div class="merch-price">₱550</div>
+            <a class="merch-btn" href="mailto:hello@kahelcafe.com?subject=Merch%20Order%20%E2%80%94%20Ceramic%20Mug">Order Now</a>
+          </div>
+        </div>
+        <p class="merch-note">📦 All merchandise available for pickup in-store or delivery via Grab. Email us to order.</p>
+      </div>
+    </section>
+  </div>
+</div><!-- /menu -->
+
+<!-- ══════════════════════════════════════════════════════
+     ANNOUNCEMENTS PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-announcements" class="page">
+  <div style="padding-top:72px;">
+
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="section-label" style="color:var(--amber);">Kahel Updates</div>
+      <h1>Announcements</h1>
+      <p>Employee spotlights, new products, promos, and what's happening at the café.</p>
+    </section>
+
+    <!-- Ticker -->
+    <div class="announcements-ticker" id="annTicker"></div>
+
+    <!-- Filter bar -->
+    <div class="ann-filter-bar">
+      <div class="ann-filter-group" id="annFilters"></div>
+      <div class="ann-count" id="annCount"></div>
+    </div>
+
+    <!-- Featured Announcement -->
+    <div class="ann-featured-wrap">
+      <div class="ann-featured reveal-left" id="annFeatured"></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="ann-grid-wrap" id="annGrid"></div>
+
+    <!-- CTA strip -->
+    <div class="ann-cta-strip reveal">
+      <div class="section-label" style="margin-bottom:12px;">Got Something to Share?</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(26px,3.5vw,38px);font-weight:700;margin-bottom:16px;">Submit an Internal Announcement</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.7;">
+        Team leads and managers can submit announcements to be reviewed and posted on this board.
+      </p>
+      <button class="btn-primary">Submit an Announcement</button>
+    </div>
+
+  </div>
+</div><!-- /announcements -->
+
+<!-- ══════════════════════════════════════════════════════
+     ABOUT PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div style="padding-top:72px;">
+    <section class="page-hero">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="ph-particles" id="aboutParticles"></div>
+      <div class="section-label" style="color:var(--amber);">Our Story</div>
+      <h1>About Kahel</h1>
+    </section>
+
+    <section class="about-section">
+      <div class="about-grid">
+        <div class="reveal-left">
+          <div class="section-label" style="margin-bottom:12px;">Born from Sunshine</div>
+          <h2 style="font-size:clamp(28px,3vw,42px);font-weight:700;margin-bottom:24px;line-height:1.2;">
+            A Café Rooted in<br/><em style="color:var(--orange);font-style:italic;">Warmth &amp; Community</em>
+          </h2>
+          <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px;">
+            Kahel — the Filipino word for orange — was born in 2018 from a simple belief:
+            that a great cup of coffee can turn an ordinary moment into something extraordinary.
+          </p>
+          <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px;">
+            Founded by two friends who spent years exploring coffee culture across Southeast Asia,
+            Kahel is our love letter to community, craft, and the warm Filipino spirit.
+          </p>
+          <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.9;">
+            Every detail — from our citrus-forward blends to our sun-drenched interiors —
+            is designed to make you feel at home.
+          </p>
+        </div>
+        <div class="about-values reveal-right">
+          <div class="about-value">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 21c0-8 6-16 18-16C23 17 17 21 5 21Z"/><path d="M5 21L14 12"/>
+            </svg>
+            <div class="about-value-title">Sustainably Sourced</div>
+            <div class="about-value-desc">Direct trade relationships with farmers across Benguet, Sagada, and Mt. Apo.</div>
+          </div>
+          <div class="about-value">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2c0 6-7 8-7 14a9 9 0 0 0 18 0c0-6-4-8-4-14"/>
+              <path d="M12 2c0 4 4 6 4 10a4 4 0 0 1-8 0c0-4 4-6 4-10Z"/>
+            </svg>
+            <div class="about-value-title">House Roasted</div>
+            <div class="about-value-desc">We roast in small batches weekly to ensure peak freshness in every cup.</div>
+          </div>
+          <div class="about-value">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11h4l3-3 4 4 4-2h5"/><path d="M4 17h4l3 3 4-4 4 2h5"/>
+              <path d="M10 8L4 14l6 6"/><path d="M18 8l6 6-6 6"/>
+            </svg>
+            <div class="about-value-title">Community First</div>
+            <div class="about-value-desc">10% of profits go to local farmer cooperatives and youth programs.</div>
+          </div>
+          <div class="about-value">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="14" cy="14" r="11"/>
+              <circle cx="9" cy="12" r="1.5" fill="var(--orange)"/>
+              <circle cx="14" cy="9" r="1.5" fill="var(--amber)"/>
+              <circle cx="19" cy="12" r="1.5" fill="var(--muted)"/>
+              <path d="M14 25c3 0 5-2 5-4s-2-3-5-3-5 1-5 3 2 4 5 4Z"/>
+            </svg>
+            <div class="about-value-title">Locally Inspired</div>
+            <div class="about-value-desc">Interiors, menu, and events shaped by Filipino culture and creativity.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section">
+      <div style="text-align:center;" class="reveal">
+        <div class="section-label" style="margin-bottom:12px;">The People</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:700;">Meet Our Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal" style="transition-delay:.05s">
+          <div class="team-avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="20" cy="16" r="6"/><path d="M8 36c0-8 5-13 12-13s12 5 12 13"/>
+              <path d="M25 20l3 4-2 2"/>
+            </svg>
+          </div>
+          <div class="team-name">Clara Reyes</div>
+          <div class="team-role">Co-Founder &amp; Head Roaster</div>
+        </div>
+        <div class="team-card reveal" style="transition-delay:.12s">
+          <div class="team-avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="20" cy="16" r="6"/><path d="M8 36c0-8 5-13 12-13s12 5 12 13"/>
+              <rect x="26" y="22" width="6" height="5" rx="1"/><path d="M24 24h2"/>
+            </svg>
+          </div>
+          <div class="team-name">Marco Santos</div>
+          <div class="team-role">Co-Founder &amp; Head of Operations</div>
+        </div>
+        <div class="team-card reveal" style="transition-delay:.19s">
+          <div class="team-avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="20" cy="16" r="6"/><path d="M8 36c0-8 5-13 12-13s12 5 12 13"/>
+              <path d="M26 20c2 0 4 1.5 4 4v2"/>
+            </svg>
+          </div>
+          <div class="team-name">Bianca Cruz</div>
+          <div class="team-role">Executive Chef &amp; Pastry Lead</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div><!-- /about -->
+
+<!-- ══════════════════════════════════════════════════════
+     BARISTA PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-barista" class="page">
+  <div style="padding-top:72px;">
+    <section class="page-hero barista-hero-bg">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="barista-hero-particles" id="baristaParticles"></div>
+      <div class="section-label" style="color:var(--amber);">The Craft</div>
+      <h1>Meet Our <em class="hero-italic-glow">Baristas</em></h1>
+      <p>The hands behind every cup. Masters of craft, warmth, and precision.</p>
+    </section>
+
+    <!-- Barista Philosophy Strip -->
+    <section class="barista-philosophy reveal">
+      <div class="barista-philosophy-inner">
+        <div class="barista-phil-stat">
+          <div class="barista-phil-num">18<span>hr</span></div>
+          <div class="barista-phil-label">Cold Brew Steep</div>
+        </div>
+        <div class="barista-phil-divider"></div>
+        <div class="barista-phil-stat">
+          <div class="barista-phil-num">4<span>+</span></div>
+          <div class="barista-phil-label">Years Avg Experience</div>
+        </div>
+        <div class="barista-phil-divider"></div>
+        <div class="barista-phil-stat">
+          <div class="barista-phil-num">93<span>°C</span></div>
+          <div class="barista-phil-label">Brew Temperature</div>
+        </div>
+        <div class="barista-phil-divider"></div>
+        <div class="barista-phil-stat">
+          <div class="barista-phil-num">100<span>%</span></div>
+          <div class="barista-phil-label">Passion in Every Cup</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barista Team -->
+    <section class="barista-team-section">
+      <div class="barista-team-inner">
+        <div class="barista-section-header reveal">
+          <div class="section-label" style="margin-bottom:16px;justify-content:center;">Our People</div>
+          <h2 class="barista-section-title">The Hands Behind<br/><em>Every Perfect Cup</em></h2>
+          <p class="barista-section-sub">Each barista brings their own story, technique, and soul to the bar.</p>
+        </div>
+
+        <div class="barista-grid">
+
+          <!-- Barista 1 — Lead -->
+          <div class="barista-card barista-card--lead reveal" style="transition-delay:.04s">
+            <div class="barista-card-glow"></div>
+            <div class="barista-avatar-wrap">
+              <div class="barista-avatar">
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="26" cy="20" r="9"/>
+                  <path d="M10 48c0-11 7-18 16-18s16 7 16 18"/>
+                  <path d="M32 26l4 5-3 3"/>
+                  <path d="M20 26l-4 5 3 3"/>
+                </svg>
+              </div>
+              <div class="barista-avatar-ring"></div>
+              <span class="barista-rank-badge">Lead Barista</span>
+            </div>
+            <div class="barista-card-body">
+              <h3 class="barista-name">Maria Santos</h3>
+              <div class="barista-title-role">Head of Bar · 6 years</div>
+              <p class="barista-bio">Maria is the soul of our espresso bar. She trained in Melbourne and brought back a meticulous pour technique that defines the Kahel standard. Her specialty: the Tiramisu Latte.</p>
+              <div class="barista-skills">
+                <span class="barista-skill-tag">Latte Art</span>
+                <span class="barista-skill-tag">Single Origin</span>
+                <span class="barista-skill-tag">Espresso</span>
+              </div>
+              <div class="barista-sig-drink">
+                <div class="barista-sig-label">Signature Drink</div>
+                <div class="barista-sig-name">Tiramisu Latte — ₱180</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barista 2 -->
+          <div class="barista-card reveal" style="transition-delay:.12s">
+            <div class="barista-avatar-wrap">
+              <div class="barista-avatar">
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="26" cy="20" r="9"/>
+                  <path d="M10 48c0-11 7-18 16-18s16 7 16 18"/>
+                  <rect x="32" y="26" width="8" height="6" rx="1.5"/>
+                  <path d="M30 29h2"/>
+                </svg>
+              </div>
+              <div class="barista-avatar-ring"></div>
+            </div>
+            <div class="barista-card-body">
+              <h3 class="barista-name">Carlo Mendoza</h3>
+              <div class="barista-title-role">Senior Barista · 4 years</div>
+              <p class="barista-bio">Carlo is our cold brew architect. He perfected our 18-hour steep formula and introduced the tangerine zest cold brew that became an instant bestseller last summer.</p>
+              <div class="barista-skills">
+                <span class="barista-skill-tag">Cold Brew</span>
+                <span class="barista-skill-tag">Filtration</span>
+                <span class="barista-skill-tag">Flavour Profiling</span>
+              </div>
+              <div class="barista-sig-drink">
+                <div class="barista-sig-label">Signature Drink</div>
+                <div class="barista-sig-name">Tangerine Cold Brew — ₱215</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barista 3 -->
+          <div class="barista-card reveal" style="transition-delay:.20s">
+            <div class="barista-avatar-wrap">
+              <div class="barista-avatar">
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="26" cy="20" r="9"/>
+                  <path d="M10 48c0-11 7-18 16-18s16 7 16 18"/>
+                  <path d="M33 25c3 0 5 2 5 5v4"/>
+                </svg>
+              </div>
+              <div class="barista-avatar-ring"></div>
+            </div>
+            <div class="barista-card-body">
+              <h3 class="barista-name">Anika Villanueva</h3>
+              <div class="barista-title-role">Barista · 2 years</div>
+              <p class="barista-bio">Anika is our matcha and non-coffee specialist. She spent a season in Kyoto studying Japanese tea culture and brought that mindfulness back to every cup she crafts.</p>
+              <div class="barista-skills">
+                <span class="barista-skill-tag">Matcha</span>
+                <span class="barista-skill-tag">Tea Ceremony</span>
+                <span class="barista-skill-tag">Non-Coffee</span>
+              </div>
+              <div class="barista-sig-drink">
+                <div class="barista-sig-label">Signature Drink</div>
+                <div class="barista-sig-name">Mad Matcha — ₱170</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barista 4 -->
+          <div class="barista-card reveal" style="transition-delay:.28s">
+            <div class="barista-avatar-wrap">
+              <div class="barista-avatar">
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="26" cy="20" r="9"/>
+                  <path d="M10 48c0-11 7-18 16-18s16 7 16 18"/>
+                  <path d="M28 28l6 4-2 3"/>
+                </svg>
+              </div>
+              <div class="barista-avatar-ring"></div>
+            </div>
+            <div class="barista-card-body">
+              <h3 class="barista-name">Jay Ramos</h3>
+              <div class="barista-title-role">Barista · 3 years</div>
+              <p class="barista-bio">Jay is the youngest on the team but brings an infectious energy to the bar. His latte art videos on TikTok have grown a community of 50K+ coffee lovers following Kahel.</p>
+              <div class="barista-skills">
+                <span class="barista-skill-tag">Latte Art</span>
+                <span class="barista-skill-tag">Frappe Craft</span>
+                <span class="barista-skill-tag">Content</span>
+              </div>
+              <div class="barista-sig-drink">
+                <div class="barista-sig-label">Signature Drink</div>
+                <div class="barista-sig-name">Biscoff Latte — ₱170</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /barista-grid -->
+      </div>
+    </section>
+
+    <!-- Craft Process Section -->
+    <section class="barista-process-section">
+      <div class="barista-process-inner">
+        <div class="barista-section-header reveal" style="text-align:left;max-width:none;">
+          <div class="section-label" style="margin-bottom:16px;">The Method</div>
+          <h2 class="barista-section-title" style="text-align:left; color: white;">From Bean to Cup —<br/><em>Our 5-Step Craft</em></h2>
+        </div>
+        <div class="barista-process-steps">
+          <div class="barista-step reveal" style="transition-delay:.04s">
+            <div class="barista-step-num">01</div>
+            <div class="barista-step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 21c0-8 6-16 18-16C23 17 17 21 5 21Z"/><path d="M5 21L14 12"/>
+              </svg>
+            </div>
+            <div class="barista-step-title">Source</div>
+            <p class="barista-step-desc">Direct trade from Benguet, Sagada & Mt. Apo farmers. We visit every harvest season.</p>
+          </div>
+          <div class="barista-step-connector reveal" style="transition-delay:.07s"></div>
+          <div class="barista-step reveal" style="transition-delay:.10s">
+            <div class="barista-step-num">02</div>
+            <div class="barista-step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 4c-3 4-4 6-4 10a4 4 0 0 0 8 0c0-4-1-6-4-10Z"/>
+              </svg>
+            </div>
+            <div class="barista-step-title">Roast</div>
+            <p class="barista-step-desc">Small-batch weekly roasting in-house. We target light-to-medium profiles for citrus clarity.</p>
+          </div>
+          <div class="barista-step-connector reveal" style="transition-delay:.13s"></div>
+          <div class="barista-step reveal" style="transition-delay:.16s">
+            <div class="barista-step-num">03</div>
+            <div class="barista-step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10h2a4 4 0 0 1 0 8h-2"/><path d="M5 10h16v9a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4Z"/>
+                <line x1="9" y1="6" x2="9" y2="10"/><line x1="13" y1="6" x2="13" y2="10"/><line x1="17" y1="6" x2="17" y2="10"/>
+              </svg>
+            </div>
+            <div class="barista-step-title">Extract</div>
+            <p class="barista-step-desc">Every shot pulled at 9 bars, 93°C, 25-30 seconds. Dialed in fresh each morning.</p>
+          </div>
+          <div class="barista-step-connector reveal" style="transition-delay:.19s"></div>
+          <div class="barista-step reveal" style="transition-delay:.22s">
+            <div class="barista-step-num">04</div>
+            <div class="barista-step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="14" cy="20" rx="8" ry="3"/><path d="M6 20V12c0-3 3.6-5 8-5s8 2 8 5v8"/>
+                <path d="M10 17c1 1.5 3 2 4 0"/>
+              </svg>
+            </div>
+            <div class="barista-step-title">Steam</div>
+            <p class="barista-step-desc">Micro-foam textured at 60-65°C. We use local oat milk as the default for creaminess.</p>
+          </div>
+          <div class="barista-step-connector reveal" style="transition-delay:.25s"></div>
+          <div class="barista-step reveal" style="transition-delay:.28s">
+            <div class="barista-step-num">05</div>
+            <div class="barista-step-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 3l2.4 7H23l-5.6 4.1 2.1 6.7L14 17l-5.5 3.8 2.1-6.7L5 10h6.6L14 3Z"/>
+              </svg>
+            </div>
+            <div class="barista-step-title">Serve</div>
+            <p class="barista-step-desc">Every cup leaves with intention — a latte art rosette or simple elegance, always with care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /barista -->
+
+<!-- ══════════════════════════════════════════════════════
+     GALLERY PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-gallery" class="page">
+  <div style="padding-top:72px;">
+    <section class="page-hero">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="ph-particles" id="galleryParticles"></div>
+      <div class="gallery-hero-orb gallery-hero-orb-1"></div>
+      <div class="gallery-hero-orb gallery-hero-orb-2"></div>
+      <div class="section-label" style="color:var(--amber);">Visual Stories</div>
+      <h1>The Kahel <em class="hero-italic-glow">Gallery</em></h1>
+      <p>Every frame tells the story of craft, warmth, and community.</p>
+    </section>
+
+    <!-- Gallery Filter -->
+    <div class="gallery-filter-bar">
+      <div class="gallery-filter-inner">
+        <button class="gallery-filter-btn active" data-filter="all" onclick="filterGallery('all',this)">All</button>
+        <button class="gallery-filter-btn" data-filter="coffee" onclick="filterGallery('coffee',this)">Coffee</button>
+        <button class="gallery-filter-btn" data-filter="food" onclick="filterGallery('food',this)">Food</button>
+        <button class="gallery-filter-btn" data-filter="space" onclick="filterGallery('space',this)">The Space</button>
+      </div>
+    </div>
+
+    <!-- Masonry Gallery Grid -->
+    <section class="gallery-section">
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gallery-item gallery-item--tall reveal-scale" data-cat="coffee" style="transition-delay:.03s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=85" alt="Espresso pour" loading="lazy" />
+          <div class="gallery-steam"></div>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Morning Ritual</div>
+            <div class="gallery-item-sub">Espresso · by Maria</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="food" style="transition-delay:.06s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=85" alt="Café food" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Kitchen Fresh</div>
+            <div class="gallery-item-sub">Food · Chef Bianca</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="space" style="transition-delay:.09s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=85" alt="Café interior" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Sun-Drenched Interior</div>
+            <div class="gallery-item-sub">Space · Kahel</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item gallery-item--wide reveal-scale" data-cat="coffee" style="transition-delay:.12s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200&q=85" alt="Latte art" loading="lazy" />
+          <div class="gallery-steam"></div>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">The Rosette</div>
+            <div class="gallery-item-sub">Latte Art · by Jay</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="coffee" style="transition-delay:.15s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800&q=85" alt="Coffee close up" loading="lazy" />
+          <div class="gallery-steam"></div>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Pure Espresso</div>
+            <div class="gallery-item-sub">Coffee · Kahel Bar</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item gallery-item--tall reveal-scale" data-cat="team" style="transition-delay:.18s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=800&q=85" alt="Barista at work" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Focused</div>
+            <div class="gallery-item-sub">Team · Bar Service</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="food" style="transition-delay:.21s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=85" alt="Food plating" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Plated with Love</div>
+            <div class="gallery-item-sub">Food · Kitchen Team</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="space" style="transition-delay:.24s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=85" alt="Café ambience" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Golden Hour</div>
+            <div class="gallery-item-sub">Space · Afternoon</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item gallery-item--wide reveal-scale" data-cat="team" style="transition-delay:.27s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1200&q=85" alt="Team at work" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">The Team</div>
+            <div class="gallery-item-sub">Team · Kahel Family</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="coffee" style="transition-delay:.30s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&q=85" alt="Specialty latte" loading="lazy" />
+          <div class="gallery-steam"></div>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Vanilla Oat</div>
+            <div class="gallery-item-sub">Coffee · Bestseller</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="space" style="transition-delay:.33s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=85" alt="Outdoor seating" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Al Fresco</div>
+            <div class="gallery-item-sub">Space · Patio</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal-scale" data-cat="food" style="transition-delay:.36s">
+          <div class="gallery-item-frame">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85" alt="Food spread" loading="lazy" />
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-label">Comfort Plates</div>
+            <div class="gallery-item-sub">Food · Daily Menu</div>
+          </div>
+          <div class="gallery-item-zoom">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+          </div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+    </section>
+
+    <!-- Gallery Lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox" onclick="if(event.target===this||event.target.closest('.lightbox-close'))closeLightbox()">
+      <button class="lightbox-close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <button class="lightbox-prev" id="lightboxPrev" onclick="event.stopPropagation();navigateLightbox(-1)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="" />
+        <div class="lightbox-caption">
+          <div class="lightbox-caption-title" id="lightboxTitle"></div>
+          <div class="lightbox-caption-sub" id="lightboxSub"></div>
+        </div>
+      </div>
+      <button class="lightbox-next" id="lightboxNext" onclick="event.stopPropagation();navigateLightbox(1)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <!-- Instagram CTA -->
+    <div class="gallery-cta-strip reveal">
+      <div class="section-label" style="margin-bottom:12px;justify-content:center;">Follow Along</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(26px,3.5vw,38px);font-weight:700;margin-bottom:16px;">Share Your Kahel Moment</h2>
+      <p style="font-family:var(--font-body);font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.7;">Tag us <strong style="color:var(--orange);">@kahelcafe</strong> on Instagram and your photo might be featured here.</p>
+      <a class="btn-primary" href="https://www.instagram.com/kahelcafebacoor" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+
+  </div>
+</div><!-- /gallery -->
+
+<!-- ══════════════════════════════════════════════════════
+     CONTACT PAGE
+════════════════════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div style="padding-top:72px;">
+    <section class="page-hero">
+      <div class="ph-orb-1"></div>
+      <div class="ph-orb-2"></div>
+      <div class="ph-grid"></div>
+      <div class="section-label" style="color:var(--amber);">Get in Touch</div>
+      <h1>Contact &amp; Visit</h1>
+      <p>Find us, reach out, or book a table. We'd love to have you.</p>
+    </section>
+
+    <section class="visit-section">
+      <div class="visit-grid">
+        <!-- Info -->
+        <div class="reveal-left">
+          <h2 class="visit-info-title">Find Us &amp; Reach Out</h2>
+          <div class="info-row">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 2a7 7 0 0 1 7 7c0 5-7 12-7 12S4 14 4 9a7 7 0 0 1 7-7Z"/><circle cx="11" cy="9" r="2.5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="info-label">Location</div>
+              <div class="info-text">Js Ville Subdivision, Habay 1, Bacoor City Cavite, Philippines</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="18" height="14" rx="2"/><path d="m2 7 9 6 9-6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-text">hello@kahelcafe.com</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="9"/><path d="M11 6v5l3 3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="info-label">Hours</div>
+              <div class="info-text">Mon–Fri: 7am–9pm · Sat: 8am–10pm · Sun: 8am–8pm</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="18" height="18" rx="2"/><path d="M8 16V8h4a3 3 0 0 1 0 6H8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="info-label">Parking</div>
+              <div class="info-text">Free parking available at the rear of the building</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Buttons -->
+        <div class="reveal-right">
+          <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;margin-bottom:8px;">Get in Touch</h2>
+          <p style="font-family:var(--font-body);font-size:14px;color:var(--muted);margin-bottom:36px;">Reach us directly to book a table, ask a question, or say hello. We'd love to hear from you.</p>
+
+          <div class="contact-btns">
+
+            <!-- Messenger -->
+            <a class="contact-btn contact-btn--messenger"
+               href="https://m.me/100089147125186"
+               target="_blank" rel="noopener">
+              <span class="contact-btn-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.318 5.51 3.396 7.27V22l3.102-1.696A10.56 10.56 0 0 0 12 20.486c5.523 0 10-4.145 10-9.243S17.523 2 12 2Z" fill="currentColor" opacity=".15"/>
+                  <path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.906 1.318 5.51 3.396 7.27V22l3.102-1.696A10.56 10.56 0 0 0 12 20.486c5.523 0 10-4.145 10-9.243S17.523 2 12 2Zm1.008 12.44-2.55-2.717-4.98 2.717 5.477-5.81 2.613 2.717 4.917-2.717-5.477 5.81Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <div class="contact-btn-text">
+                <div class="contact-btn-label">Message on Messenger</div>
+                <div class="contact-btn-sub">Kahel Café · Facebook</div>
+              </div>
+              <svg class="contact-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <!-- Instagram DM -->
+            <a class="contact-btn contact-btn--instagram"
+               href="https://ig.me/m/kahelcafebacoor"
+               target="_blank" rel="noopener">
+              <span class="contact-btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </span>
+              <div class="contact-btn-text">
+                <div class="contact-btn-label">DM on Instagram</div>
+                <div class="contact-btn-sub">@kahelcafebacoor</div>
+              </div>
+              <svg class="contact-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+            <!-- Phone / Call -->
+            <a class="contact-btn contact-btn--phone"
+               href="tel:+639123456789">
+              <span class="contact-btn-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6.6 2H4a2 2 0 0 0-2 2c0 9.9 8.1 18 18 18a2 2 0 0 0 2-2v-2.6a2 2 0 0 0-1.4-1.9l-3.5-1.2a2 2 0 0 0-2.1.5l-1.1 1.1a14.1 14.1 0 0 1-6.3-6.3l1.1-1.1a2 2 0 0 0 .5-2.1L8.5 3.4A2 2 0 0 0 6.6 2Z"/>
+                </svg>
+              </span>
+              <div class="contact-btn-text">
+                <div class="contact-btn-label">Call Us</div>
+                <div class="contact-btn-sub">+63 912 345 6789</div>
+              </div>
+              <svg class="contact-btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map placeholder -->
+    <div class="map-placeholder">
+      <div class="map-inner">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M30 6l-12 6-12-6v30l12 6 12-6 12 6V12z"/><path d="M18 12v30M30 6v30"/>
+        </svg>
+        <h3>123 Citrus Street, Paranaque City</h3>
+        <p>Metro Manila, Philippines</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /visit -->
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer id="mainFooter">
+  <div class="footer-inner">
+
+    <!-- Top row: brand + tagline -->
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Kahel</div>
+        <div class="footer-brand-sub">Café</div>
+        <p class="footer-brand-desc">A place where every cup tells a story.<br/>Crafted with care, served with warmth.</p>
+      </div>
+      <div class="footer-tagline-block">
+        <div class="footer-tagline">&ldquo;Where warmth meets every cup&rdquo;</div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="footer-rule"></div>
+
+    <!-- Middle row: hours + contact + socials -->
+    <div class="footer-mid">
+      <div class="footer-info-col">
+        <div class="footer-col-title">Hours</div>
+        <div class="footer-info-row">
+          <span class="footer-info-day">Mon – Fri</span>
+          <span class="footer-info-val">7:00 am – 9:00 pm</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-day">Saturday</span>
+          <span class="footer-info-val">8:00 am – 10:00 pm</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-day">Sunday</span>
+          <span class="footer-info-val">8:00 am – 8:00 pm</span>
+        </div>
+        <div class="footer-info-row">
+          <span class="footer-info-day">Holidays</span>
+          <span class="footer-info-val">9:00 am – 6:00 pm</span>
+        </div>
+      </div>
+
+      <div class="footer-info-col">
+        <div class="footer-col-title">Contact</div>
+        <a class="footer-contact-row" href="mailto:hello@kahelcafe.com">
+          <svg width="14" height="14" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="18" height="14" rx="2"/><path d="m2 7 9 6 9-6"/></svg>
+          hello@kahelcafe.com
+        </a>
+        <a class="footer-contact-row" href="tel:+639123456789">
+          <svg width="14" height="14" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 2H4a2 2 0 0 0-2 2c0 9.9 8.1 18 18 18a2 2 0 0 0 2-2v-2.6a2 2 0 0 0-1.4-1.9l-3.5-1.2a2 2 0 0 0-2.1.5l-1.1 1.1a14.1 14.1 0 0 1-6.3-6.3l1.1-1.1a2 2 0 0 0 .5-2.1L8.5 3.4A2 2 0 0 0 6.6 2Z"/></svg>
+          +63 912 345 6789
+        </a>
+        <div class="footer-contact-row" style="cursor:default;">
+          <svg width="14" height="14" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2a7 7 0 0 1 7 7c0 5-7 12-7 12S4 14 4 9a7 7 0 0 1 7-7Z"/><circle cx="11" cy="9" r="2.5"/></svg>
+          Js Ville Subdivision, Habay 1, Bacoor City Cavite
+        </div>
+      </div>
+
+      <div class="footer-info-col">
+        <div class="footer-col-title">Follow Us</div>
+        <a class="footer-social-row" href="https://www.instagram.com/kahelcafebacoor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">
+          <span class="footer-social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </span>
+          <div>
+            <div class="footer-social-name">Instagram</div>
+            <div class="footer-social-handle">@kahelcafe</div>
+          </div>
+        </a>
+        <a class="footer-social-row" href="https://www.facebook.com/profile.php?id=100089147125186" target="_blank" rel="noopener">
+          <span class="footer-social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </span>
+          <div>
+            <div class="footer-social-name">Facebook</div>
+            <div class="footer-social-handle">Kahel Café</div>
+          </div>
+        </a>
+        <a class="footer-social-row" href="https://www.tiktok.com/@https.kakai/video/7611912794144804104?is_from_webapp=1&sender_device=pc&web_id=7636339095702554133" target="_blank" rel="noopener">
+          <span class="footer-social-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </span>
+          <div>
+            <div class="footer-social-name">TikTok</div>
+            <div class="footer-social-handle">@kahelcafe</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Kahel Café. All rights reserved.</div>
+      <div class="footer-copy footer-copy-center">Crafted with ☕ in Bacoor City</div>
+      <div class="footer-copy">hello@kahelcafe.com</div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="source/script.js"></script>
+
+</body>
+</html>
